@@ -1,0 +1,23 @@
+import { getAvailableNewsYears } from "@/lib/news";
+import Link from "next/link";
+
+function ArchivePage() {
+  const links = getAvailableNewsYears();
+
+  return (
+    <header id="archive-header">
+      <h1>Archive Page</h1>
+      <nav>
+        <ul>
+          {links.map((link) => (
+            <li key={link}>
+              <Link href={`/archive/${link}`}>{link}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+export default ArchivePage;
